@@ -43,8 +43,8 @@ public class EX3 {
       // may throw ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException
       UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
       // declaration and assignment of variables
-      f1 = new JFrame("Window 1");
-      f2 = new JFrame("Window 2");
+      this.f1 = new JFrame("Window 1");
+      this.f2 = new JFrame("Window 2");
       JButton
          b1 = new JButton("Click!"),
          b2 = new JButton("Click!");
@@ -57,8 +57,8 @@ public class EX3 {
          l1 = new JLabel("Input: "),
          l2 = new JLabel("Input: "),
          l3 = new JLabel("Please wait...", SwingConstants.CENTER);
-      t1 = new JTextField(40);
-      t2 = new JTextField(40);
+      this.t1 = new JTextField(40);
+      this.t2 = new JTextField(40);
 
       // 1st Frame
       form.setBackground(Color.orange);
