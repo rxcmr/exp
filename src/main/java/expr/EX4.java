@@ -4,30 +4,33 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Scanner;
 
-public class EX4 {
-   public static void main(String[] args) {
-      try (Scanner scr = new Scanner(System.in)) {
-         // replace the path to your liking
-         String path = "src\\main\\resources\\EX4.csv", field, delimiter = ",";
-         HashMap<String, String> hashMap = new HashMap<>();
-         try (BufferedReader rdr = new BufferedReader(new FileReader(path))) {
-            // we ignore the first line
-            rdr.readLine();
-            while ((field = rdr.readLine()) != null) {
-               String[] data = field.split(delimiter);
-               hashMap.put(data[0].replace("\"", ""), data[1].replace("\"", ""));
-            }
-         } catch (IOException e) {
-            // TODO: make this create a CSV file with format [Username,Password]
-            System.out.println("CSV file not found.");
-         } finally {
-            // replace these too
-            System.out.println(hashMap.get(scr.next()));
-            System.out.println(hashMap.get(scr.next()));
-            System.out.println(hashMap);
+class EX4 {
+   private String username, password;
+   boolean isPasswordCorrect;
+   private HashMap<String, String> hashMap = new HashMap<>();
+
+   EX4(String username, String password) {
+      this.username = username;
+      this.password = password;
+   }
+
+   void parseCSV() {
+      // replace the path to your liking
+      String path = "src\\main\\resources\\EX4.csv", field, delimiter = ",";
+      try (BufferedReader rdr = new BufferedReader(new FileReader(path))) {
+         // we ignore the first line
+         rdr.readLine();
+         while ((field = rdr.readLine()) != null) {
+            String[] data = field.split(delimiter);
+            hashMap.put(data[0].replace("\"", ""), data[1].replace("\"", ""));
          }
+      } catch (IOException e) {
+         // TODO: make this create a CSV file with format ["Username","Password"]
+         System.out.println("CSV file not found.");
+      } finally {
+         if (hashMap.get(username) == null) isPasswordCorrect = false;
+         else isPasswordCorrect = hashMap.get(username).equals(password);
       }
    }
 }

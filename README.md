@@ -8,6 +8,8 @@
 - **EX4.java** - CSV parser that stores data in a `HashMap` 
 (csv file stored in /src/main/resources/EX4.csv)
 
+- **EX5.java** - `javax.swing` GUI implementation of EX4
+
 ```java
 package expr;
 public class HelloEXPR {
