@@ -67,20 +67,20 @@ public class EX3 {
       l1.setBackground(Color.black);
       l2.setBackground(Color.black);
       p1.add(l1);
-      p1.add(t1);
+      p1.add(this.t1);
       p2.add(l2);
-      p2.add(t2);
+      p2.add(this.t2);
       form.setLayout(new GridLayout(3, 1));
       form.add(p1);
       form.add(p2);
       form.add(b1);
       b1.addActionListener(new Responder_1());
       b2.addActionListener(new Responder_2());
-      f1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-      f1.setContentPane(form);
-      f1.pack();
-      f1.setResizable(false);
-      f1.setVisible(true);
+      this.f1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+      this.f1.setContentPane(form);
+      this.f1.pack();
+      this.f1.setResizable(false);
+      this.f1.setVisible(true);
       // 2nd Frame
       p3.setBackground(Color.orange);
       p3.setPreferredSize(new Dimension(300, 35));
