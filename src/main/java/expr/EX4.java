@@ -16,7 +16,8 @@ public class EX4 {
             hashMap.put(data[0].replace("\"", ""), data[1].replace("\"", ""));
          }
       } catch (IOException e) {
-         e.printStackTrace();
+         // TODO: make this create a CSV file with format [Username,Password]
+         System.out.println("CSV file not found.");
       } finally {
          // replace these too
          System.out.println(hashMap.get("Username"));
