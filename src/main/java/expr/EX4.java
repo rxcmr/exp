@@ -28,9 +28,11 @@ class EX4 {
       } catch (IOException e) {
          // TODO: make this create a CSV file with format ["Username","Password"]
          System.out.println("CSV file not found.");
-      } finally {
-         if (hashMap.get(username) == null) isPasswordCorrect = false;
-         else isPasswordCorrect = hashMap.get(username).equals(password);
-      }
+      } finally { System.out.println("Parsing complete."); }
+   }
+   
+   void passwordCheck() {
+      if (hashMap.get(username) == null) isPasswordCorrect = false;
+      else isPasswordCorrect = hashMap.get(username).equals(password);
    }
 }
