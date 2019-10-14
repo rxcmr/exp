@@ -16,6 +16,7 @@ public class EX5 {
          String password = t2.getText();
          EX4 ex4 = new EX4(username, password);
          ex4.parseCSV();
+         ex4.passwordCheck();
          if (ex4.isPasswordCorrect) {
             f2.setVisible(true);
             if (System.nanoTime() == TimeUnit.NANOSECONDS.toSeconds(20)) {
