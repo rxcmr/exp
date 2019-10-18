@@ -13,7 +13,7 @@ and showing 2 different frames with one timing out after 20 seconds
 
 - **EX5.java** - `javax.swing` GUI implementation of EX4
 
-### you want /src/test/java/expr
+### you want /src/test/java/txpr
 
 - **TX1.java** - `JavaFX` intro GUI,
 will finish once JetBrains fixes Scene Builder
