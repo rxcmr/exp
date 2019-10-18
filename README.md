@@ -19,8 +19,7 @@ and showing 2 different frames with one timing out after 20 seconds
 will finish once JetBrains fixes Scene Builder
 
 ```java
-package expr;
-public class HelloEXPR {
+public class HelloEXP {
   public static void main(String[] args) {
     System.out.println("you want /src/main/java/expr and /src/test/java/txpr");
   }
