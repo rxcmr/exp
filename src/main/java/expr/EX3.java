@@ -2,38 +2,10 @@ package expr;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
 public class EX3 {
-   private class Responder_1 implements ActionListener {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-         f1.setVisible(false);
-         f2.setVisible(true);
-         String s1 = t1.getText();
-         String s2 = t2.getText();
-         LinkedList<String> list = new LinkedList<>();
-         list.add(s1);
-         list.add(s2);
-         System.out.println(list);
-         if (System.nanoTime() == TimeUnit.NANOSECONDS.toSeconds(20)) {
-            // wait 20 seconds then show the 1st frame again
-            f2.setVisible(false);
-            f1.setVisible(true);
-         }
-      }
-   }
-
-   private class Responder_2 implements ActionListener {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-         f2.setVisible(false);
-         f1.setVisible(true);
-      }
-   }
-
    // Instance variables
    private JFrame f1, f2;
    private JTextField t1, t2;
@@ -74,8 +46,25 @@ public class EX3 {
       form.add(p1);
       form.add(p2);
       form.add(b1);
-      b1.addActionListener(new Responder_1());
-      b2.addActionListener(new Responder_2());
+      b1.addActionListener(ActionListener -> {
+         f1.setVisible(false);
+         f2.setVisible(true);
+         String s1 = t1.getText();
+         String s2 = t2.getText();
+         LinkedList<String> list = new LinkedList<>();
+         list.add(s1);
+         list.add(s2);
+         System.out.println(list);
+         if (System.nanoTime() == TimeUnit.NANOSECONDS.toSeconds(20)) {
+            // wait 20 seconds then show the 1st frame again
+            f2.setVisible(false);
+            f1.setVisible(true);
+         }
+      });
+      b2.addActionListener(ActionListener -> {
+         f2.setVisible(false);
+         f1.setVisible(true);
+      });
       this.f1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
       this.f1.setContentPane(form);
       this.f1.pack();

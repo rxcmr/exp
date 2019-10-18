@@ -3,49 +3,10 @@ package expr;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class EX5 {
-   private class Responder_1 implements ActionListener {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-         f1.setVisible(false);
-         String username = t.getText(), password = new String(pf.getPassword());
-         EX4 ex4 = new EX4(username, password);
-         pf.setText(""); // empty the field
-         try { ex4.parseCSV(); }
-         catch (IOException ex) { System.err.println("File not found."); }
-         if (ex4.isPasswordCorrect) {
-            f2.setVisible(true);
-            if (System.nanoTime() == TimeUnit.NANOSECONDS.toSeconds(20)) {
-               // wait 20 seconds then show the 1st frame again
-               f2.setVisible(false);
-               f1.setVisible(true);
-            }
-         } else {
-            f3.setVisible(true);
-         }
-      }
-   }
-
-   private class Responder_2 implements ActionListener {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-         f2.setVisible(false);
-         f1.setVisible(true);
-      }
-   }
-
-   private class Responder_3 implements ActionListener {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-         f3.setVisible(false);
-         f1.setVisible(true);
-      }
-   }
-
    // Instance variables
    private JFrame f1, f2, f3;
    private JTextField t;
@@ -92,7 +53,24 @@ public class EX5 {
       form.add(p1);
       form.add(p2);
       form.add(b1);
-      b1.addActionListener(new Responder_1());
+      b1.addActionListener(ActionListener -> {
+         f1.setVisible(false);
+         String username = t.getText(), password = new String(pf.getPassword());
+         EX4 ex4 = new EX4(username, password);
+         pf.setText(""); // empty the field
+         try { ex4.parseCSV(); }
+         catch (IOException ex) { System.err.println("File not found."); }
+         if (ex4.isPasswordCorrect) {
+            f2.setVisible(true);
+            if (System.nanoTime() == TimeUnit.NANOSECONDS.toSeconds(20)) {
+               // wait 20 seconds then show the 1st frame again
+               f2.setVisible(false);
+               f1.setVisible(true);
+            }
+         } else {
+            f3.setVisible(true);
+         }
+      });
       f1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
       f1.setContentPane(form);
       f1.pack();
@@ -103,7 +81,10 @@ public class EX5 {
       p3.setPreferredSize(new Dimension(300, 35));
       l3.setSize(15, 0);
       p3.add(l3);
-      b2.addActionListener(new Responder_2());
+      b2.addActionListener(ActionListener -> {
+         f2.setVisible(false);
+         f1.setVisible(true);
+      });
       p3.add(b2);
       f2.setContentPane(p3);
       f2.pack();
@@ -114,7 +95,10 @@ public class EX5 {
       p4.setPreferredSize(new Dimension(300, 35));
       l4.setSize(15, 0);
       p4.add(l4);
-      b3.addActionListener(new Responder_3());
+      b3.addActionListener(ActionListener -> {
+         f3.setVisible(false);
+         f1.setVisible(true);
+      });
       p4.add(b3);
       f3.setContentPane(p4);
       f3.pack();

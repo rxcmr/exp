@@ -24,20 +24,9 @@ public class EX1 {
       ex1.frame.getContentPane().add(ex1.panel);
       ex1.frame.pack();
       ex1.frame.setVisible(true);
-      ex1.button.addActionListener(new Responder(Color.RED));
-   }
-
-   private static class Responder implements ActionListener {
-      private Color color;
-      @Contract(pure = true)
-      Responder(Color color) {
-         this.color = color;
-      }
-
-      @Override
-      public void actionPerformed(@NotNull ActionEvent event) {
-         if (event.getActionCommand().equals("RED")) ex1.panel.setBackground(color);
-      }
+      ex1.button.addActionListener(ActionListener -> {
+         if (ActionListener.getActionCommand().equals("RED")) ex1.panel.setBackground(Color.RED);
+      });
    }
 }
 
