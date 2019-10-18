@@ -16,7 +16,7 @@ public class TX1 extends Application {
 
    @Override
    public void start(Stage primaryStage) throws IOException {
-      Parent parent = FXMLLoader.load(getClass().getResource("src\\test\\resources\\TX1.fxml"));
+      Parent parent = FXMLLoader.load(getClass().getResource("src\\test\\resources\\FXML\\TX1.fxml"));
       primaryStage.setTitle("TX1");
       primaryStage.setScene(new Scene(parent));
       primaryStage.show();
