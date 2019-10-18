@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class EX5 {
@@ -14,7 +15,8 @@ public class EX5 {
          String username = t.getText(), password = new String(pf.getPassword());
          EX4 ex4 = new EX4(username, password);
          pf.setText(""); // empty the field
-         ex4.parseCSV();
+         try { ex4.parseCSV(); }
+         catch (IOException ex) { System.err.println("File not found."); }
          if (ex4.isPasswordCorrect) {
             f2.setVisible(true);
             if (System.nanoTime() == TimeUnit.NANOSECONDS.toSeconds(20)) {
