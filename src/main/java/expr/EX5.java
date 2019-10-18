@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
 public class EX5 {
@@ -12,11 +11,10 @@ public class EX5 {
       @Override
       public void actionPerformed(ActionEvent e) {
          f1.setVisible(false);
-         String username = t1.getText();
-         String password = t2.getText();
+         String username = t.getText(), password = new String(pf.getPassword());
          EX4 ex4 = new EX4(username, password);
+         pf.setText(""); // empty the field
          ex4.parseCSV();
-         ex4.passwordCheck();
          if (ex4.isPasswordCorrect) {
             f2.setVisible(true);
             if (System.nanoTime() == TimeUnit.NANOSECONDS.toSeconds(20)) {
@@ -48,20 +46,21 @@ public class EX5 {
 
    // Instance variables
    private JFrame f1, f2, f3;
-   private JTextField t1, t2;
+   private JTextField t;
+   private JPasswordField pf;
 
    private void init() throws Exception {
       // set style to be OS-specific (Windows, macOS, Linux)
       // may throw ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException
       UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
       // declaration and assignment of variables
-      this.f1 = new JFrame("Window 1");
-      this.f2 = new JFrame("Window 2");
-      this.f3 = new JFrame("Window 3");
+      f1 = new JFrame("Window 1");
+      f2 = new JFrame("Window 2");
+      f3 = new JFrame("Window 3");
       JButton
          b1 = new JButton("Submit!"),
          b2 = new JButton("Log in now!"),
-         b3 = new JButton("Oh fuck go back!");
+         b3 = new JButton("Go back.");
       JPanel
          form = new JPanel(),
          p1 = new JPanel(),
@@ -73,8 +72,8 @@ public class EX5 {
          l2 = new JLabel("Password: "),
          l3 = new JLabel("Logged in.", SwingConstants.CENTER),
          l4 = new JLabel("Incorrect username or password.", SwingConstants.CENTER);
-      this.t1 = new JTextField(40);
-      this.t2 = new JTextField(40);
+      t = new JTextField(40);
+      pf = new JPasswordField(40);
 
       // 1st Frame
       form.setBackground(Color.orange);
@@ -82,20 +81,21 @@ public class EX5 {
       p2.setBackground(Color.orange);
       l1.setBackground(Color.black);
       l2.setBackground(Color.black);
+      pf.setEchoChar('\u25cf');
       p1.add(l1);
-      p1.add(this.t1);
+      p1.add(t);
       p2.add(l2);
-      p2.add(this.t2);
+      p2.add(pf);
       form.setLayout(new GridLayout(3, 1));
       form.add(p1);
       form.add(p2);
       form.add(b1);
       b1.addActionListener(new Responder_1());
-      this.f1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-      this.f1.setContentPane(form);
-      this.f1.pack();
-      this.f1.setResizable(false);
-      this.f1.setVisible(true);
+      f1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+      f1.setContentPane(form);
+      f1.pack();
+      f1.setResizable(false);
+      f1.setVisible(true);
       // 2nd Frame
       p3.setBackground(Color.orange);
       p3.setPreferredSize(new Dimension(300, 35));
