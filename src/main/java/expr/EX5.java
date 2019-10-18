@@ -2,7 +2,7 @@ package expr;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -11,11 +11,31 @@ public class EX5 {
    private JFrame f1, f2, f3;
    private JTextField t;
    private JPasswordField pf;
+   private ActionListener lsr = ActionListener -> {
+      f1.setVisible(false);
+      String username = t.getText(), password = new String(pf.getPassword());
+      EX4 ex4 = new EX4(username, password);
+      pf.setText(""); // empty the field
+      try { ex4.parseCSV(); }
+      catch (IOException e) { System.err.println("File not found."); }
+      if (ex4.isPasswordCorrect) {
+         f2.setVisible(true);
+         if (System.nanoTime() == TimeUnit.NANOSECONDS.toSeconds(20)) {
+            // wait 20 seconds then show the 1st frame again
+            f2.setVisible(false);
+            f1.setVisible(true);
+         }
+      } else {
+         f3.setVisible(true);
+      }
+   };
 
    private void init() throws Exception {
       // set style to be OS-specific (Windows, macOS, Linux)
       // may throw ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException
       UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+      // ENTER key triggers JButtons
+      UIManager.put("Button.defaultButtonFollowsFocus", Boolean.TRUE);
       // declaration and assignment of variables
       f1 = new JFrame("Window 1");
       f2 = new JFrame("Window 2");
@@ -53,24 +73,8 @@ public class EX5 {
       form.add(p1);
       form.add(p2);
       form.add(b1);
-      b1.addActionListener(ActionListener -> {
-         f1.setVisible(false);
-         String username = t.getText(), password = new String(pf.getPassword());
-         EX4 ex4 = new EX4(username, password);
-         pf.setText(""); // empty the field
-         try { ex4.parseCSV(); }
-         catch (IOException ex) { System.err.println("File not found."); }
-         if (ex4.isPasswordCorrect) {
-            f2.setVisible(true);
-            if (System.nanoTime() == TimeUnit.NANOSECONDS.toSeconds(20)) {
-               // wait 20 seconds then show the 1st frame again
-               f2.setVisible(false);
-               f1.setVisible(true);
-            }
-         } else {
-            f3.setVisible(true);
-         }
-      });
+      pf.addActionListener(lsr);
+      b1.addActionListener(lsr);
       f1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
       f1.setContentPane(form);
       f1.pack();
