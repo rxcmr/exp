@@ -15,8 +15,7 @@ and showing 2 different frames with one timing out after 20 seconds
 
 ### you want /src/test/java/txpr
 
-- **TX1.java** - `JavaFX` intro GUI,
-will finish once JetBrains fixes Scene Builder
+- wip
 
 ```java
 public class HelloEXP {
