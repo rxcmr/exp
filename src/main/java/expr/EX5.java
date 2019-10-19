@@ -11,13 +11,12 @@ public class EX5 {
    private JFrame f1, f2, f3;
    private JTextField t;
    private JPasswordField pf;
-   private ActionListener lsr = ActionListener -> {
+   private ActionListener listener = ActionListener -> {
       f1.setVisible(false);
       String username = t.getText(), password = new String(pf.getPassword());
       EX4 ex4 = new EX4(username, password);
       pf.setText(""); // empty the field
-      try { ex4.parseCSV(); }
-      catch (IOException e) { System.err.println("File not found."); }
+      ex4.parseCSV();
       if (ex4.isPasswordCorrect) {
          f2.setVisible(true);
          if (System.nanoTime() == TimeUnit.NANOSECONDS.toSeconds(20)) {
@@ -25,9 +24,7 @@ public class EX5 {
             f2.setVisible(false);
             f1.setVisible(true);
          }
-      } else {
-         f3.setVisible(true);
-      }
+      } else f3.setVisible(true);
    };
 
    private void init() throws Exception {
@@ -73,8 +70,9 @@ public class EX5 {
       form.add(p1);
       form.add(p2);
       form.add(b1);
-      pf.addActionListener(lsr);
-      b1.addActionListener(lsr);
+      t.addActionListener(listener);
+      pf.addActionListener(listener);
+      b1.addActionListener(listener);
       f1.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
       f1.setContentPane(form);
       f1.pack();

@@ -14,7 +14,7 @@ class EX4 {
       this.password = password;
    }
 
-   void parseCSV() throws IOException {
+   void parseCSV() {
       // replace the path to your liking
       String field, delimiter = ",";
       try (BufferedReader rdr = new BufferedReader(new FileReader(path))) {
@@ -27,7 +27,8 @@ class EX4 {
       } catch (IOException e) {
          System.err.println("CSV file not found.");
          System.out.println("Creating CSV file...");
-         createCSV();
+         try { createCSV(); }
+         catch (IOException ex) { ex.printStackTrace(); }
       } finally { passwordCheck(); }
    }
    
