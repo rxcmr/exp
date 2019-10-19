@@ -1,21 +1,15 @@
 package expr;
 
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class EX1 {
    private JFrame frame = new JFrame();
    private JPanel panel = new JPanel(new BorderLayout());
    private JButton button;
-   private static EX1 ex1;
 
    public static void main(String[] args) {
-      ex1 = new EX1();
+      EX1 ex1 = new EX1();
       ex1.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       ex1.panel.setBackground(Color.MAGENTA);
       ex1.panel.setPreferredSize(new Dimension(300, 300));
