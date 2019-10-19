@@ -61,7 +61,7 @@ public class EX5 {
       p2.setBackground(Color.orange);
       l1.setBackground(Color.black);
       l2.setBackground(Color.black);
-      pf.setEchoChar('\u25cf');
+      pf.setEchoChar('●');
       p1.add(l1);
       p1.add(t);
       p2.add(l2);
