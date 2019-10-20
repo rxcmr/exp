@@ -22,5 +22,3 @@ public class EX8 {
       System.out.println("Return limits result: " + rlm_result);
    }
 }
-
-
