@@ -13,6 +13,13 @@ and showing 2 different frames with one timing out after 20 seconds
 
 - **EX5.java** - `javax.swing` GUI implementation of EX4
 
+- **EX6.java** - ActionListener interface
+
+- **EX7.java** - lambda expression demonstration implementing EX6
+
+- **EX8.java** - integrals! functions `f(x)`! lambda expressions! 
+multiple classes! multiple interfaces!
+
 ### you want /src/test/java/txpr
 
 - wip
