@@ -20,6 +20,9 @@ and showing 2 different frames with one timing out after 20 seconds
 - **EX8.java** - integrals! functions `f(x)`! lambda expressions! 
 multiple classes! multiple interfaces!
 
+- **EX9.java** - polar to cartesian coordinates,
+cartesian to polar coordinates
+
 ### you want /src/test/java/txpr
 
 - wip

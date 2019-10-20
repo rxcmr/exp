@@ -9,12 +9,12 @@ interface Function {
 }
 
 class _EX8_Midpoint_Rule {
-   Function f_of_x; // evaluate the function f(x)
+   Function f_of_x; // the function f(x)
    Integral integral = (a, b) -> (b - a) * f_of_x.evaluate((a + b) / 2);
 }
 
 class _EX8_Trapezoidal_Rule {
-   Function f_of_x;
+   Function f_of_x; // the function f(x)
    Integral integral = (a, b) -> (b - a) * ((f_of_x.evaluate(a) + f_of_x.evaluate(b)) / 2);
 }
 
