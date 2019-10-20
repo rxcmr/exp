@@ -1,12 +1,8 @@
 package expr;
 
-interface Integral {
-   double integrate(double lowerBounds, double upperBounds);
-}
+interface Function { double evaluate(double x); }
 
-interface Function {
-   double evaluate(double x);
-}
+interface Integral { double integrate(double lowerBounds, double upperBounds); }
 
 class _EX8_Midpoint_Rule {
    Function f_of_x; // the function f(x)
