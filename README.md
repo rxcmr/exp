@@ -23,6 +23,9 @@ multiple classes! multiple interfaces!
 - **EX9.java** - polar to cartesian coordinates,
 cartesian to polar coordinates
 
+- **EX10.java** - `ExecutorService` using `Executors.newCachedThreadPool()`
+to execute a service with a lambda expression
+
 ### you want /src/test/java/txpr
 
 - wip
