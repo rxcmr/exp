@@ -3,7 +3,6 @@ package expr;
 import org.jetbrains.annotations.Contract;
 
 interface Function { double evaluate(double x); }
-
 interface Integral { double integrate(double lowerBounds, double upperBounds); }
 
 class _EX8_Return_Limits {
