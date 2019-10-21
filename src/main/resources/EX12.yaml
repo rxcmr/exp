@@ -1,0 +1,9 @@
+name: Gilbert
+age: -1
+credentials:
+  username: Gilbert
+  password: 1234567890
+permissions:
+  - Read
+  - Write
+  - Execute

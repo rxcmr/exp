@@ -11,10 +11,6 @@ import static java.lang.System.*;
 public class EX11 {
    private double a, b, c;
    private int gcf = 1;
-   private final double
-      discriminant = (pow(b, 2)) - (4 * a * c),
-      realPart = -b / (2 * a),
-      imaginaryPart = sqrt(-discriminant) / (2 * a);
 
    private void init() throws IOException {
       BufferedReader rdr = new BufferedReader(new InputStreamReader(System.in));
@@ -41,6 +37,7 @@ public class EX11 {
    }
 
    private void simplify() {
+      double discriminant = pow(b, 2) - (4 * a * c);
       for (int i = 1; i <= b && i <= -discriminant && i <= (-2 * a); i++) {
          if (b % i == 0 && -discriminant % i == 0 && (-2 * a) % i == 0) {
             gcf = i;
@@ -52,6 +49,7 @@ public class EX11 {
 
    private void solve() {
       double x_1, x_2;
+      double discriminant = pow(b, 2) - (4 * a * c);
       if (a == 0) {
          err.println("\na is equal to 0.");
          throw new ArithmeticException("a cannot be 0 in a quadratic equation.");
@@ -60,12 +58,15 @@ public class EX11 {
          if (discriminant > 0) {
             x_1 = (-b + sqrt(discriminant)) / (2 * a);
             x_2 = (-b - sqrt(discriminant)) / (2 * a);
-            out.printf("\nx\u2081 = %s, x\u2082 = %s", x_1, x_2);
+            out.printf("\nx\u2081 = %s, x\u2082 = %s%n", x_1, x_2);
             out.printf("Alternative result: \nx\u2081 = %s + \u221a%s / %s, x\u2082 = %s - \u221a%s / %s", -b, discriminant, a, -b, discriminant, a);
          } else if (discriminant == 0) {
             double x = -b / (2 * a);
             out.printf("\nx = %s", x);
          } else {
+            double
+               realPart = -b / (2 * a),
+               imaginaryPart = sqrt(-discriminant) / (2 * a);
             simplify();
             double[]
                p = new double[] { realPart, imaginaryPart },

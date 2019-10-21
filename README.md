@@ -28,6 +28,8 @@ to execute a service with a lambda expression
 
 - **EX11.java** - math math math math quadratic equations, math
 
+- **EX12.java** - Jackson YAML parser
+
 ### you want /src/test/java/txpr
 
 - wip
