@@ -29,9 +29,7 @@ class EX12 {
    void setAge(int age) { this.age = age; }
    void setCredentials(HashMap<String, String> credentials) { this.credentials = credentials; }
    void setPermissions(String[] permissions) { this.permissions = permissions; }
-}
 
-class _EX12_YAML {
    private void parseYAML() {
       ObjectMapper objmap = new ObjectMapper(new YAMLFactory());
       try {
@@ -41,7 +39,7 @@ class _EX12_YAML {
    }
 
    public static void main(String[] args) {
-      _EX12_YAML ex12_yaml = new _EX12_YAML();
-      ex12_yaml.parseYAML();
+      EX12 ex12 = new EX12();
+      ex12.parseYAML();
    }
 }
