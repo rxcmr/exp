@@ -26,6 +26,8 @@ cartesian to polar coordinates
 - **EX10.java** - `ExecutorService` using `Executors.newCachedThreadPool()`
 to execute a service with a lambda expression
 
+- **EX11.java** - math math math math quadratic equations, math
+
 ### you want /src/test/java/txpr
 
 - wip
