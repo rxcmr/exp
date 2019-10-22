@@ -1,4 +1,5 @@
-### you want /src/main/java/expr
+# you want /src/main/java/expr
+## Now with 76% more var
 
 - **EX1.java** - `javax.swing` GUI demonstrating background color changes using JButton
 
@@ -30,7 +31,9 @@ to execute a service with a lambda expression
 
 - **EX12.java** - Jackson YAML parser
 
-### you want /src/test/java/txpr
+- **EX13.java** - Semaphores
+
+# you want /src/test/java/txpr
 
 - wip
 

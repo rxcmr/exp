@@ -3,7 +3,6 @@ package expr;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class EX5 {
@@ -61,7 +60,7 @@ public class EX5 {
       p2.setBackground(Color.orange);
       l1.setBackground(Color.black);
       l2.setBackground(Color.black);
-      pf.setEchoChar('●');
+      pf.setEchoChar('\u25cf');
       p1.add(l1);
       p1.add(t);
       p2.add(l2);

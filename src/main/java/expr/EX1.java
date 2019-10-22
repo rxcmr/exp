@@ -9,7 +9,7 @@ public class EX1 {
    private JButton button;
 
    public static void main(String[] args) {
-      EX1 ex1 = new EX1();
+      var ex1 = new EX1();
       ex1.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       ex1.panel.setBackground(Color.MAGENTA);
       ex1.panel.setPreferredSize(new Dimension(300, 300));

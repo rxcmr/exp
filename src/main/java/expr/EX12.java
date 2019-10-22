@@ -1,10 +1,10 @@
 package expr;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.jetbrains.annotations.Contract;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,15 +31,15 @@ class EX12 {
    void setPermissions(String[] permissions) { this.permissions = permissions; }
 
    private void parseYAML() {
-      ObjectMapper objmap = new ObjectMapper(new YAMLFactory());
+      var objmap = new ObjectMapper(new YAMLFactory());
       try {
-         EX12 ex12 = objmap.readValue(new File("src\\main\\resources\\EX12.yaml"), EX12.class);
+         var ex12 = objmap.readValue(new File("src\\main\\resources\\EX12.yaml"), EX12.class);
          System.out.println(ReflectionToStringBuilder.toString(ex12, ToStringStyle.MULTI_LINE_STYLE));
       } catch (IOException ignored) {}
    }
 
    public static void main(String[] args) {
-      EX12 ex12 = new EX12();
+      var ex12 = new EX12();
       ex12.parseYAML();
    }
 }
