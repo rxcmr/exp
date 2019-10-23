@@ -15,7 +15,7 @@ public class EX10 {
    }
 
    public static void main(String[] args) {
-      var ex10 = new EX10();
+      EX10 ex10 = new EX10();
       ex10.setService(Executors.newCachedThreadPool());
       for (int i = 0; i < 30; i++) {
          ex10.getService().execute(() -> System.out.println("Task executed!"));

@@ -31,15 +31,15 @@ class EX12 {
    void setPermissions(String[] permissions) { this.permissions = permissions; }
 
    private void parseYAML() {
-      var objmap = new ObjectMapper(new YAMLFactory());
+      ObjectMapper objmap = new ObjectMapper(new YAMLFactory());
       try {
-         var ex12 = objmap.readValue(new File("src\\main\\resources\\EX12.yaml"), EX12.class);
+         EX12 ex12 = objmap.readValue(new File("src\\main\\resources\\EX12.yaml"), EX12.class);
          System.out.println(ReflectionToStringBuilder.toString(ex12, ToStringStyle.MULTI_LINE_STYLE));
       } catch (IOException ignored) {}
    }
 
    public static void main(String[] args) {
-      var ex12 = new EX12();
+      EX12 ex12 = new EX12();
       ex12.parseYAML();
    }
 }

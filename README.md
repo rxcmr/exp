@@ -1,5 +1,5 @@
 # you want /src/main/java/expr
-## Now with 76% more var
+## Now with 100% less var
 
 - **EX1.java** - `javax.swing` GUI demonstrating background color changes using JButton
 

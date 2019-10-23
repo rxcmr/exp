@@ -31,7 +31,7 @@ public class EX5 {
       // may throw ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException
       UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
       // ENTER key triggers JButtons
-      UIManager.put("Button.defaultButtonFollowsFocus", Boolean.TRUE);
+      UIManager.put("Button.defaultButtonFollowsFocus", true);
       // declaration and assignment of variables
       f1 = new JFrame("Window 1");
       f2 = new JFrame("Window 2");

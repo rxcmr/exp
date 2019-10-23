@@ -17,7 +17,7 @@ class EX4 {
    void parseCSV() {
       // replace the path to your liking
       String field, delimiter = ",";
-      try (var rdr = new BufferedReader(new FileReader(path))) {
+      try (BufferedReader rdr = new BufferedReader(new FileReader(path))) {
          // we ignore the first line
          rdr.readLine();
          while ((field = rdr.readLine()) != null) {

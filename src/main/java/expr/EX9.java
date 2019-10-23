@@ -29,10 +29,10 @@ class PolarToCartesian {
 
 public class EX9 {
    public static void main(String[] args) {
-      var cartesianToPolar = new CartesianToPolar(3, 5);
+      CartesianToPolar cartesianToPolar = new CartesianToPolar(3, 5);
       System.out.printf("r = %s, θ = %s or %s°%n",
          cartesianToPolar.calculateHypot(), cartesianToPolar.calculateAngle(), cartesianToPolar.calculateAngleInDegrees());
-      var polarToCartesian = new PolarToCartesian(5.830951894845301, 1.0303768265243125);
+      PolarToCartesian polarToCartesian = new PolarToCartesian(5.830951894845301, 1.0303768265243125);
       System.out.printf("x = %s, y = %s%n", polarToCartesian.calculateAbscissa(), polarToCartesian.calculateOrdinate());
    }
 }

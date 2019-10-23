@@ -6,9 +6,9 @@ public class EX7 {
    private EX6 ex6 = EX6 -> System.out.println("Hi!") ;
 
    public static void main(String[] args) {
-      var f = new JFrame();
-      var p = new JPanel();
-      var b = new JButton();
+      JFrame f = new JFrame();
+      JPanel p = new JPanel();
+      JButton b = new JButton();
       b.addActionListener(EX6 -> System.out.println("Hey!"));
       p.add(b);
       f.setContentPane(p);
