@@ -33,6 +33,8 @@ to execute a service with a lambda expression
 
 - **EX13.java** - Semaphores
 
+- **EX14.java** - bases, radix, etc...
+
 # you want /src/test/java/txpr
 
 - wip
